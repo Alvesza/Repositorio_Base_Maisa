@@ -1,1 +1,27 @@
-Aqui, vocês vão colocar os códigos sobre listas
+lista = []
+
+opcao = 87
+while opcao != 5:
+    opcao = int(input(" 1 - add itens \n 2 - ver lista \n 3- atualizar item \n 4- remove \n 5-sair "))
+    if opcao == 1:
+        item = input("qual item vc deseja add ? ")
+        lista.append(item )
+        print(f"lista:  {lista} voce adicionou: {item}")   
+    elif opcao == 2 :
+        print(lista)
+    elif opcao == 3 :
+        antigo =input ("item que deseja substituir:")
+        if antigo in lista: 
+            novo = input ("novo item:")
+            x = lista.index(antigo)
+            lista[x]= novo
+            print (" lista atualizada",lista)
+            print (f" atualizar: { lista }voce atualizou este item: {novo}")
+        
+    elif opcao == 4 :
+        item = input("qual item vc deseja remover ? ")
+        lista.remove(item)
+        print(f"lista:  {lista} voce removeu: {item}")
+
+    elif opcao == 5 :
+        print ("saiu")
