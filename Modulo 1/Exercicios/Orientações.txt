@@ -1,1 +1,90 @@
-Aqui, vocês vão colocar os códigos que são só exercícios, aqueles que utilizamos para reforçar o conteúdo. 
+import pygame
+import random
+
+# Inicializa o Pygame
+pygame.init()
+
+# Tela do jogo
+LARGURA = 500
+ALTURA = 600
+tela = pygame.display.set_mode((LARGURA, ALTURA))
+pygame.display.set_caption("Jogo de Carro")
+
+# Cores
+BRANCO = (255, 255, 255)
+PRETO = (0, 0, 0)
+VERMELHO = (200, 0, 0)
+AZUL = (0, 0, 255)
+
+# Relógio
+clock = pygame.time.Clock()
+FPS = 60
+
+# Carro do jogador
+carro_largura = 50
+carro_altura = 90
+carro_x = LARGURA // 2 - carro_largura // 2
+carro_y = ALTURA - carro_altura - 10
+velocidade = 5
+
+# Obstáculo
+obs_largura = 50
+obs_altura = 90
+obs_x = random.randint(0, LARGURA - obs_largura)
+obs_y = -obs_altura
+obs_vel = 7
+
+# Pontuação
+pontuacao = 0
+fonte = pygame.font.SysFont(None, 36)
+
+def desenhar_carro(x, y):
+    pygame.draw.rect(tela, AZUL, [x, y, carro_largura, carro_altura])
+
+def desenhar_obstaculo(x, y):
+    pygame.draw.rect(tela, VERMELHO, [x, y, obs_largura, obs_altura])
+
+def mostrar_pontuacao(pontos):
+    texto = fonte.render(f'Pontos: {pontos}', True, PRETO)
+    tela.blit(texto, (10, 10))
+
+# Loop principal
+rodando = True
+while rodando:
+    tela.fill(BRANCO)
+
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            rodando = False
+
+    # Movimentação
+    teclas = pygame.key.get_pressed()
+    if teclas[pygame.K_LEFT] and carro_x > 0:
+        carro_x -= velocidade
+    if teclas[pygame.K_RIGHT] and carro_x < LARGURA - carro_largura:
+        carro_x += velocidade
+
+    # Atualiza obstáculo
+    obs_y += obs_vel
+    if obs_y > ALTURA:
+        obs_y = -obs_altura
+        obs_x = random.randint(0, LARGURA - obs_largura)
+        pontuacao += 1
+        obs_vel += 0.5  # Aumenta dificuldade
+
+    # Colisão
+    if (carro_y < obs_y + obs_altura and
+        carro_y + carro_altura > obs_y and
+        carro_x < obs_x + obs_largura and
+        carro_x + carro_largura > obs_x):
+        print("Bateu!")
+        rodando = False
+
+    desenhar_carro(carro_x, carro_y)
+    desenhar_obstaculo(obs_x, obs_y)
+    mostrar_pontuacao(pontuacao)
+
+    pygame.display.update()
+    clock.tick(FPS)
+
+pygame.quit()
