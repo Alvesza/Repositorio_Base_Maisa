@@ -1,1 +1,8 @@
-Aqui, vocês vão colocar os códigos sobre IF, else e Elif, código do contatinho por exemplo
+nome = input (" qual é o seu nome ?")
+temperatura = int(input (" qual é a temperatura ?"))
+if  temperatura  >= 30 :
+   print  (f"hoje a{ temperatura} esta quente")
+elif temperatura <= 10 :
+   print  (f" hoje a{ temperatura} esta fria")
+else :
+   print (f"esta mediana  ")
