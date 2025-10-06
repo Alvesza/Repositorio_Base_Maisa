@@ -1,1 +1,101 @@
-Aqui, vocês vão colocar os códigos sobre APis, o cotação de moedas e pokemon por exemplo
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio — Maisa</title>
+  <style>
+    :root{
+      --dark-blue: #0b3d91; /* azul escuro usado em tudo */
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --radius: 12px;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:40px 16px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 0 8px 28px rgba(15,30,60,0.08);
+      padding:28px;
+    }
+
+    header h1{
+      margin:0 0 12px 0;
+      font-size:28px;
+      color:var(--dark-blue);
+      line-height:1.1;
+    }
+
+    /* Negrito azul escuro */
+    .bold-blue {
+      color: var(--dark-blue);
+      font-weight: 700;
+    }
+
+    .bio {
+      margin-top:18px;
+      background:linear-gradient(180deg, rgba(11,61,145,0.08), rgba(11,61,145,0.04));
+      padding:16px;
+      border-radius:10px;
+      font-size:16px;
+    }
+
+    .links {
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    a.insta {
+      text-decoration:none;
+      color:var(--dark-blue);
+      font-weight:700;
+      border:1px solid rgba(11,61,145,0.2);
+      padding:8px 10px;
+      border-radius:8px;
+      display:inline-block;
+    }
+
+    footer {
+      margin-top:20px;
+      font-size:13px;
+      color:#555;
+    }
+
+    @media (max-width:520px){
+      .container{ padding:18px; }
+      header h1{ font-size:22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+    <header>
+      <h1>sejam bem vindos ao meu portifolio</h1>
+    </header>
+
+    <section>
+      <p class="bold-blue">Olá — seja muito bem-vindx! Aqui é um espaço simples para mostrar um pouco sobre mim.</p>
+    </section>
+
+    <section class="bio" aria-label="Biografia">
+      oiu meu nome é Maisa,tenho 15 ano,gosto de andar de skate, e pixar muros por ai,nao sou tao ativa nas redes sociais,o link do @ do insta é aalvesza,meio pouco de seguidores e totalmente low profile
+    </section>
+
+    <div class="links">
+      <a class="insta" href="https://instagram.com/aalvesza" target="_blank" rel="noopener noreferrer">@aalvesza</a>
+      <span style="color:#666; font-size:14px;">(perfil low profil
