@@ -1,1 +1,22 @@
-Aqui, vocês vão colocar os códigos sobre Banco de dados
+import sqlite3 
+
+#criamos a conexao com o banco e guardamos na variavel 'banco'
+banco= sqlite3.connect('banco.db')
+
+
+
+#criamos a variavel cursor e colocamos uma variavel
+cursor = banco.cursor()
+
+# # criamos a tabela pessoas com os campos necessarios
+# cursor.execute("create table pessoas ( nome text,idade integer,nota REAL )")
+
+
+
+#### INSERINDO NA TABELA DESEJADA VALORES 
+cursor.execute ("insert into pessoas values ('maisa',16,7)") 
+cursor.execute ("insert into pessoas values ('maisa',16,7)")
+cursor.execute ("insert into pessoas values ('maisa',16,7)")
+cursor.execute ("insert into pessoas values ('maisa',16,7)")
+cursor.execute ("insert into pessoas values ('maisa',16,7)")
+banco.commit()
