@@ -20,3 +20,35 @@ cursor.execute ("insert into pessoas values ('maisa',16,7)")
 cursor.execute ("insert into pessoas values ('maisa',16,7)")
 cursor.execute ("insert into pessoas values ('maisa',16,7)")
 banco.commit()
+
+
+
+
+
+
+
+
+
+
+ISSO AQUI JA E OUTRO BANCO
+
+import sqlite3 
+#criamos a conexao com o banco e guardamos na variavel 'banco'
+banco=sqlite3.connect('pacientes.db')
+
+#criamos a variavel cusor e colocamos em uma variavel
+cursor=banco.cursor()
+##  # criamos a tabela com os campos necessarios
+cursor.execute ("CREATE TABLE pacientes(nome TEXT,doença text)")
+
+# # # #inserindo a tabela desejada os valores
+cursor.execute("INSERT INTO pacientes VALUES('Maisa','dor de cabeça')")
+cursor.execute("INSERT INTO pacientes VALUES('Amanda', 'cancer')")
+cursor.execute("INSERT INTO pacientes VALUES('Maria','crise renal')")
+cursor.execute("INSERT INTO pacientes VALUES('Alexandra','dor  plantar')")
+# # # # DELETAR informaçao
+#cursor.execute("delete from pacientes where valor= 16")
+# # # # ATUALIZAR INFORMAÇÃO
+# cursor.execute ("UPDATE pacientes  SET validade= '02/11/2025' WHERE validade ='18/04/2025'")
+# # # # enviando os dados
+banco.commit ()
